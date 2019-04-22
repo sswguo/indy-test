@@ -9,7 +9,7 @@ Using project "nos-local".
 #### Deploy the GossipRouter on OSE
 
 ````
-$> oc new-app jboss/jgroups-gossip
+$> oc new-app jboss/jgroups-gossip -e LogLevel=trace
 --> Found Docker image 8c23d5c (2 months old) from Docker Hub for "jboss/jgroups-gossip"
 
     * An image stream tag will be created as "jgroups-gossip:latest" that will track this image
