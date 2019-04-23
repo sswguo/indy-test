@@ -68,4 +68,6 @@ Add Config Files in Applications/Deployments/auditquery
 - select config map source 
 - fill the mount path (target path for the config files)
 
+Then we can ref the config files from the mounted path. 
+
 
