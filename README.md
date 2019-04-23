@@ -56,4 +56,15 @@ $> oc new-app jind0001/auditquery:1.0
     Run 'oc status' to view your app.oc new-app jind0001/auditquery:1.0
 ````
 
+#### Create ConfigMaps from the existing config files
+````
+
+````
+
+#### Add ConfigMap for auditquery
+
+Add Config Files in Applications/Deployments/auditquery
+- select config map source 
+- fill the mount path (target path for the config files)
+
 
