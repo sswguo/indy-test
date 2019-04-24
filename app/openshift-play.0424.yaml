@@ -1,0 +1,1365 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for
+        container auditquery; cpu, memory limit for container auditquery'
+      openshift.io/deployment-config.latest-version: "2"
+      openshift.io/deployment-config.name: auditquery
+      openshift.io/deployment.name: auditquery-2
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/scc: restricted
+    creationTimestamp: 2019-04-24T09:11:55Z
+    generateName: auditquery-2-
+    labels:
+      app: auditquery
+      deployment: auditquery-2
+      deploymentconfig: auditquery
+    name: auditquery-2-twx4s
+    namespace: nos-local
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicationController
+      name: auditquery-2
+      uid: fec41e1e-6670-11e9-95b5-1250f17a13c8
+    resourceVersion: "3974608361"
+    selfLink: /api/v1/namespaces/nos-local/pods/auditquery-2-twx4s
+    uid: 0176787a-6671-11e9-b371-12d641ec7610
+  spec:
+    containers:
+    - image: jind0001/auditquery@sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4
+      imagePullPolicy: Always
+      name: auditquery
+      ports:
+      - containerPort: 8082
+        protocol: TCP
+      resources:
+        limits:
+          cpu: "1"
+          memory: 512Mi
+        requests:
+          cpu: 20m
+          memory: 256Mi
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - NET_RAW
+          - SETGID
+          - SETUID
+        runAsUser: 1048140000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /opt/auditquery/etc/auditquery
+        name: volume-v3u25
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-d9fmt
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    imagePullSecrets:
+    - name: default-dockercfg-zhwwk
+    nodeName: ip-172-31-51-237.ec2.internal
+    nodeSelector:
+      type: compute
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1048140000
+      seLinuxOptions:
+        level: s0:c219,c199
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: auditquery-config
+      name: volume-v3u25
+    - name: default-token-d9fmt
+      secret:
+        defaultMode: 420
+        secretName: default-token-d9fmt
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: 2019-04-24T09:11:55Z
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: 2019-04-24T09:12:02Z
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: null
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: 2019-04-24T09:11:55Z
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://bf6fa1fd160d763000a0cc973e25310bf3e117eadc22871e147c31c526f38b58
+      image: docker.io/jind0001/auditquery@sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4
+      imageID: docker-pullable://docker.io/jind0001/auditquery@sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4
+      lastState: {}
+      name: auditquery
+      ready: true
+      restartCount: 0
+      state:
+        running:
+          startedAt: 2019-04-24T09:12:02Z
+    hostIP: 172.31.51.237
+    phase: Running
+    podIP: 10.128.153.252
+    qosClass: Burstable
+    startTime: 2019-04-24T09:11:55Z
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for
+        container indy; cpu, memory limit for container indy'
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: indy
+      openshift.io/deployment.name: indy-1
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/scc: restricted
+    creationTimestamp: 2019-04-24T08:47:20Z
+    generateName: indy-1-
+    labels:
+      app: indy
+      deployment: indy-1
+      deploymentconfig: indy
+    name: indy-1-lb9h5
+    namespace: nos-local
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicationController
+      name: indy-1
+      uid: fd60e169-666c-11e9-95b5-1250f17a13c8
+    resourceVersion: "3974575808"
+    selfLink: /api/v1/namespaces/nos-local/pods/indy-1-lb9h5
+    uid: 9234fb6f-666d-11e9-b371-12d641ec7610
+  spec:
+    containers:
+    - image: jind0001/indy@sha256:2d06fc14677aee8eea761fbfa971df9d4003b4ba2b92b75fba0bd0532a881f9a
+      imagePullPolicy: Always
+      name: indy
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+      resources:
+        limits:
+          cpu: "1"
+          memory: 512Mi
+        requests:
+          cpu: 20m
+          memory: 256Mi
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - NET_RAW
+          - SETGID
+          - SETUID
+        runAsUser: 1048140000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-d9fmt
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    imagePullSecrets:
+    - name: default-dockercfg-zhwwk
+    nodeName: ip-172-31-48-190.ec2.internal
+    nodeSelector:
+      type: compute
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1048140000
+      seLinuxOptions:
+        level: s0:c219,c199
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - name: default-token-d9fmt
+      secret:
+        defaultMode: 420
+        secretName: default-token-d9fmt
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: 2019-04-24T08:47:20Z
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: 2019-04-24T08:47:45Z
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: null
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: 2019-04-24T08:47:20Z
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://a6c034f2fa016efbd57461db2e687403f327b60c125f436d5dffecaa289792bc
+      image: docker.io/jind0001/indy@sha256:2d06fc14677aee8eea761fbfa971df9d4003b4ba2b92b75fba0bd0532a881f9a
+      imageID: docker.io/jind0001/indy@sha256:2d06fc14677aee8eea761fbfa971df9d4003b4ba2b92b75fba0bd0532a881f9a
+      lastState: {}
+      name: indy
+      ready: true
+      restartCount: 0
+      state:
+        running:
+          startedAt: 2019-04-24T08:47:45Z
+    hostIP: 172.31.48.190
+    phase: Running
+    podIP: 10.130.42.203
+    qosClass: Burstable
+    startTime: 2019-04-24T08:47:20Z
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubernetes.io/limit-ranger: 'LimitRanger plugin set: cpu, memory request for
+        container jgroups-gossip; cpu, memory limit for container jgroups-gossip'
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: jgroups-gossip
+      openshift.io/deployment.name: jgroups-gossip-1
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/scc: restricted
+    creationTimestamp: 2019-04-24T08:47:00Z
+    generateName: jgroups-gossip-1-
+    labels:
+      app: jgroups-gossip
+      deployment: jgroups-gossip-1
+      deploymentconfig: jgroups-gossip
+    name: jgroups-gossip-1-5x8rd
+    namespace: nos-local
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicationController
+      name: jgroups-gossip-1
+      uid: c097bd76-64db-11e9-95b5-1250f17a13c8
+    resourceVersion: "3974574896"
+    selfLink: /api/v1/namespaces/nos-local/pods/jgroups-gossip-1-5x8rd
+    uid: 863d1f52-666d-11e9-b371-12d641ec7610
+  spec:
+    containers:
+    - env:
+      - name: LogLevel
+        value: trace
+      image: jboss/jgroups-gossip@sha256:6f51b5261f65e39c555dc8ac4b08aaade7421ff7db330e83f2e24385ff571d22
+      imagePullPolicy: Always
+      name: jgroups-gossip
+      ports:
+      - containerPort: 12001
+        protocol: TCP
+      resources:
+        limits:
+          cpu: "1"
+          memory: 512Mi
+        requests:
+          cpu: 20m
+          memory: 256Mi
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - NET_RAW
+          - SETGID
+          - SETUID
+        runAsUser: 1048140000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-d9fmt
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    imagePullSecrets:
+    - name: default-dockercfg-zhwwk
+    nodeName: ip-172-31-48-190.ec2.internal
+    nodeSelector:
+      type: compute
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1048140000
+      seLinuxOptions:
+        level: s0:c219,c199
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - name: default-token-d9fmt
+      secret:
+        defaultMode: 420
+        secretName: default-token-d9fmt
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: 2019-04-24T08:47:00Z
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: 2019-04-24T08:47:06Z
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: null
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: 2019-04-24T08:47:00Z
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://f9d74bd4d68568498c941722df3cfb93eb0a6d7ed20b703583929f1bb38281d2
+      image: docker.io/jboss/jgroups-gossip@sha256:6f51b5261f65e39c555dc8ac4b08aaade7421ff7db330e83f2e24385ff571d22
+      imageID: docker.io/jboss/jgroups-gossip@sha256:6f51b5261f65e39c555dc8ac4b08aaade7421ff7db330e83f2e24385ff571d22
+      lastState: {}
+      name: jgroups-gossip
+      ready: true
+      restartCount: 0
+      state:
+        running:
+          startedAt: 2019-04-24T08:47:06Z
+    hostIP: 172.31.48.190
+    phase: Running
+    podIP: 10.130.42.202
+    qosClass: Burstable
+    startTime: 2019-04-24T08:47:00Z
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.completed-at: 2019-04-24 09:11:12 +0000 UTC
+      openshift.io/deployer-pod.created-at: 2019-04-24 09:10:54 +0000 UTC
+      openshift.io/deployer-pod.name: auditquery-1-deploy
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: auditquery
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: "1"
+      openshift.io/deployment.status-reason: config change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"auditquery","namespace":"nos-local","selfLink":"/apis/apps.openshift.io/v1/namespaces/nos-local/deploymentconfigs/auditquery","uid":"dc7a7c23-6670-11e9-b371-12d641ec7610","resourceVersion":"3974606838","generation":2,"creationTimestamp":"2019-04-24T09:10:53Z","labels":{"app":"auditquery"},"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["auditquery"],"from":{"kind":"ImageStreamTag","namespace":"nos-local","name":"auditquery:1.6"},"lastTriggeredImage":"jind0001/auditquery@sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"app":"auditquery","deploymentconfig":"auditquery"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"auditquery","deploymentconfig":"auditquery"},"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"}},"spec":{"containers":[{"name":"auditquery","image":"jind0001/auditquery@sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4","ports":[{"containerPort":8082,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":1,"observedGeneration":1,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"config change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2019-04-24T09:10:53Z","lastTransitionTime":"2019-04-24T09:10:53Z","message":"Deployment config does not have minimum availability."}]}}
+    creationTimestamp: 2019-04-24T09:10:54Z
+    generation: 3
+    labels:
+      app: auditquery
+      openshift.io/deployment-config.name: auditquery
+    name: auditquery-1
+    namespace: nos-local
+    ownerReferences:
+    - apiVersion: apps.openshift.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DeploymentConfig
+      name: auditquery
+      uid: dc7a7c23-6670-11e9-b371-12d641ec7610
+    resourceVersion: "3974608383"
+    selfLink: /api/v1/namespaces/nos-local/replicationcontrollers/auditquery-1
+    uid: dd1982e6-6670-11e9-95b5-1250f17a13c8
+  spec:
+    replicas: 0
+    selector:
+      app: auditquery
+      deployment: auditquery-1
+      deploymentconfig: auditquery
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "1"
+          openshift.io/deployment-config.name: auditquery
+          openshift.io/deployment.name: auditquery-1
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          app: auditquery
+          deployment: auditquery-1
+          deploymentconfig: auditquery
+      spec:
+        containers:
+        - image: jind0001/auditquery@sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4
+          imagePullPolicy: IfNotPresent
+          name: auditquery
+          ports:
+          - containerPort: 8082
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 3
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      openshift.io/deployer-pod.completed-at: 2019-04-24 09:12:04 +0000 UTC
+      openshift.io/deployer-pod.created-at: 2019-04-24 09:11:50 +0000 UTC
+      openshift.io/deployer-pod.name: auditquery-2-deploy
+      openshift.io/deployment-config.latest-version: "2"
+      openshift.io/deployment-config.name: auditquery
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: config change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"auditquery","namespace":"nos-local","selfLink":"/apis/apps.openshift.io/v1/namespaces/nos-local/deploymentconfigs/auditquery","uid":"dc7a7c23-6670-11e9-b371-12d641ec7610","resourceVersion":"3974608009","generation":3,"creationTimestamp":"2019-04-24T09:10:53Z","labels":{"app":"auditquery"},"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["auditquery"],"from":{"kind":"ImageStreamTag","namespace":"nos-local","name":"auditquery:1.6"},"lastTriggeredImage":"jind0001/auditquery@sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"app":"auditquery","deploymentconfig":"auditquery"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"auditquery","deploymentconfig":"auditquery"},"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"}},"spec":{"volumes":[{"name":"volume-v3u25","configMap":{"name":"auditquery-config","defaultMode":420}}],"containers":[{"name":"auditquery","image":"jind0001/auditquery@sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4","ports":[{"containerPort":8082,"protocol":"TCP"}],"resources":{},"volumeMounts":[{"name":"volume-v3u25","mountPath":"/opt/auditquery/etc/auditquery"}],"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":2,"observedGeneration":2,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"config change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2019-04-24T09:11:12Z","lastTransitionTime":"2019-04-24T09:11:12Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2019-04-24T09:11:13Z","lastTransitionTime":"2019-04-24T09:11:13Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"auditquery-1\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: 2019-04-24T09:11:50Z
+    generation: 2
+    labels:
+      app: auditquery
+      openshift.io/deployment-config.name: auditquery
+    name: auditquery-2
+    namespace: nos-local
+    ownerReferences:
+    - apiVersion: apps.openshift.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DeploymentConfig
+      name: auditquery
+      uid: dc7a7c23-6670-11e9-b371-12d641ec7610
+    resourceVersion: "3974608445"
+    selfLink: /api/v1/namespaces/nos-local/replicationcontrollers/auditquery-2
+    uid: fec41e1e-6670-11e9-95b5-1250f17a13c8
+  spec:
+    replicas: 1
+    selector:
+      app: auditquery
+      deployment: auditquery-2
+      deploymentconfig: auditquery
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "2"
+          openshift.io/deployment-config.name: auditquery
+          openshift.io/deployment.name: auditquery-2
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          app: auditquery
+          deployment: auditquery-2
+          deploymentconfig: auditquery
+      spec:
+        containers:
+        - image: jind0001/auditquery@sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4
+          imagePullPolicy: IfNotPresent
+          name: auditquery
+          ports:
+          - containerPort: 8082
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/auditquery/etc/auditquery
+            name: volume-v3u25
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: auditquery-config
+          name: volume-v3u25
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      openshift.io/deployer-pod.completed-at: 2019-04-24 08:43:29 +0000 UTC
+      openshift.io/deployer-pod.created-at: 2019-04-24 08:43:10 +0000 UTC
+      openshift.io/deployer-pod.name: indy-1-deploy
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: indy
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: "1"
+      openshift.io/deployment.status-reason: config change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"indy","namespace":"nos-local","selfLink":"/apis/apps.openshift.io/v1/namespaces/nos-local/deploymentconfigs/indy","uid":"fcc29809-666c-11e9-95b5-1250f17a13c8","resourceVersion":"3974569761","generation":2,"creationTimestamp":"2019-04-24T08:43:09Z","labels":{"app":"indy"},"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["indy"],"from":{"kind":"ImageStreamTag","namespace":"nos-local","name":"indy:1.5"},"lastTriggeredImage":"jind0001/indy@sha256:2d06fc14677aee8eea761fbfa971df9d4003b4ba2b92b75fba0bd0532a881f9a"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"app":"indy","deploymentconfig":"indy"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"indy","deploymentconfig":"indy"},"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"}},"spec":{"containers":[{"name":"indy","image":"jind0001/indy@sha256:2d06fc14677aee8eea761fbfa971df9d4003b4ba2b92b75fba0bd0532a881f9a","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":1,"observedGeneration":1,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"config change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2019-04-24T08:43:09Z","lastTransitionTime":"2019-04-24T08:43:09Z","message":"Deployment config does not have minimum availability."}]}}
+    creationTimestamp: 2019-04-24T08:43:10Z
+    generation: 4
+    labels:
+      app: indy
+      openshift.io/deployment-config.name: indy
+    name: indy-1
+    namespace: nos-local
+    ownerReferences:
+    - apiVersion: apps.openshift.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DeploymentConfig
+      name: indy
+      uid: fcc29809-666c-11e9-95b5-1250f17a13c8
+    resourceVersion: "3974575809"
+    selfLink: /api/v1/namespaces/nos-local/replicationcontrollers/indy-1
+    uid: fd60e169-666c-11e9-95b5-1250f17a13c8
+  spec:
+    replicas: 1
+    selector:
+      app: indy
+      deployment: indy-1
+      deploymentconfig: indy
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "1"
+          openshift.io/deployment-config.name: indy
+          openshift.io/deployment.name: indy-1
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          app: indy
+          deployment: indy-1
+          deploymentconfig: indy
+      spec:
+        containers:
+        - image: jind0001/indy@sha256:2d06fc14677aee8eea761fbfa971df9d4003b4ba2b92b75fba0bd0532a881f9a
+          imagePullPolicy: IfNotPresent
+          name: indy
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 4
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      openshift.io/deployer-pod.completed-at: 2019-04-22 08:51:08 +0000 UTC
+      openshift.io/deployer-pod.created-at: 2019-04-22 08:51:00 +0000 UTC
+      openshift.io/deployer-pod.name: jgroups-gossip-1-deploy
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: jgroups-gossip
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: "1"
+      openshift.io/deployment.status-reason: config change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"jgroups-gossip","namespace":"nos-local","selfLink":"/apis/apps.openshift.io/v1/namespaces/nos-local/deploymentconfigs/jgroups-gossip","uid":"bff731fc-64db-11e9-b371-12d641ec7610","resourceVersion":"3970690083","generation":2,"creationTimestamp":"2019-04-22T08:50:59Z","labels":{"app":"jgroups-gossip"},"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["jgroups-gossip"],"from":{"kind":"ImageStreamTag","namespace":"nos-local","name":"jgroups-gossip:latest"},"lastTriggeredImage":"jboss/jgroups-gossip@sha256:6f51b5261f65e39c555dc8ac4b08aaade7421ff7db330e83f2e24385ff571d22"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"app":"jgroups-gossip","deploymentconfig":"jgroups-gossip"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"jgroups-gossip","deploymentconfig":"jgroups-gossip"},"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"}},"spec":{"containers":[{"name":"jgroups-gossip","image":"jboss/jgroups-gossip@sha256:6f51b5261f65e39c555dc8ac4b08aaade7421ff7db330e83f2e24385ff571d22","ports":[{"containerPort":12001,"protocol":"TCP"}],"env":[{"name":"LogLevel","value":"trace"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":1,"observedGeneration":1,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"config change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2019-04-22T08:50:59Z","lastTransitionTime":"2019-04-22T08:50:59Z","message":"Deployment config does not have minimum availability."}]}}
+    creationTimestamp: 2019-04-22T08:51:00Z
+    generation: 8
+    labels:
+      app: jgroups-gossip
+      openshift.io/deployment-config.name: jgroups-gossip
+    name: jgroups-gossip-1
+    namespace: nos-local
+    ownerReferences:
+    - apiVersion: apps.openshift.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DeploymentConfig
+      name: jgroups-gossip
+      uid: bff731fc-64db-11e9-b371-12d641ec7610
+    resourceVersion: "3974574898"
+    selfLink: /api/v1/namespaces/nos-local/replicationcontrollers/jgroups-gossip-1
+    uid: c097bd76-64db-11e9-95b5-1250f17a13c8
+  spec:
+    replicas: 1
+    selector:
+      app: jgroups-gossip
+      deployment: jgroups-gossip-1
+      deploymentconfig: jgroups-gossip
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "1"
+          openshift.io/deployment-config.name: jgroups-gossip
+          openshift.io/deployment.name: jgroups-gossip-1
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          app: jgroups-gossip
+          deployment: jgroups-gossip-1
+          deploymentconfig: jgroups-gossip
+      spec:
+        containers:
+        - env:
+          - name: LogLevel
+            value: trace
+          image: jboss/jgroups-gossip@sha256:6f51b5261f65e39c555dc8ac4b08aaade7421ff7db330e83f2e24385ff571d22
+          imagePullPolicy: Always
+          name: jgroups-gossip
+          ports:
+          - containerPort: 12001
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 8
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: 2019-04-24T09:10:53Z
+    labels:
+      app: auditquery
+    name: auditquery
+    namespace: nos-local
+    resourceVersion: "3974606823"
+    selfLink: /api/v1/namespaces/nos-local/services/auditquery
+    uid: dcb8937a-6670-11e9-b371-12d641ec7610
+  spec:
+    clusterIP: 172.30.103.92
+    ports:
+    - name: 8082-tcp
+      port: 8082
+      protocol: TCP
+      targetPort: 8082
+    selector:
+      app: auditquery
+      deploymentconfig: auditquery
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: 2019-04-24T08:43:09Z
+    labels:
+      app: indy
+    name: indy
+    namespace: nos-local
+    resourceVersion: "3974569747"
+    selfLink: /api/v1/namespaces/nos-local/services/indy
+    uid: fd0153cf-666c-11e9-95b5-1250f17a13c8
+  spec:
+    clusterIP: 172.30.96.202
+    ports:
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: indy
+      deploymentconfig: indy
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: 2019-04-22T08:50:59Z
+    labels:
+      app: jgroups-gossip
+    name: jgroups-gossip
+    namespace: nos-local
+    resourceVersion: "3970690069"
+    selfLink: /api/v1/namespaces/nos-local/services/jgroups-gossip
+    uid: c02f9035-64db-11e9-b371-12d641ec7610
+  spec:
+    clusterIP: 172.30.18.89
+    ports:
+    - name: 12001-tcp
+      port: 12001
+      protocol: TCP
+      targetPort: 12001
+    selector:
+      app: jgroups-gossip
+      deploymentconfig: jgroups-gossip
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: apps.openshift.io/v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: 2019-04-24T09:10:53Z
+    generation: 3
+    labels:
+      app: auditquery
+    name: auditquery
+    namespace: nos-local
+    resourceVersion: "3974608446"
+    selfLink: /apis/apps.openshift.io/v1/namespaces/nos-local/deploymentconfigs/auditquery
+    uid: dc7a7c23-6670-11e9-b371-12d641ec7610
+  spec:
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      app: auditquery
+      deploymentconfig: auditquery
+    strategy:
+      activeDeadlineSeconds: 21600
+      resources: {}
+      rollingParams:
+        intervalSeconds: 1
+        maxSurge: 25%
+        maxUnavailable: 25%
+        timeoutSeconds: 600
+        updatePeriodSeconds: 1
+      type: Rolling
+    template:
+      metadata:
+        annotations:
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          app: auditquery
+          deploymentconfig: auditquery
+      spec:
+        containers:
+        - image: jind0001/auditquery@sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4
+          imagePullPolicy: IfNotPresent
+          name: auditquery
+          ports:
+          - containerPort: 8082
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/auditquery/etc/auditquery
+            name: volume-v3u25
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: auditquery-config
+          name: volume-v3u25
+    test: false
+    triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - auditquery
+        from:
+          kind: ImageStreamTag
+          name: auditquery:1.6
+          namespace: nos-local
+        lastTriggeredImage: jind0001/auditquery@sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4
+      type: ImageChange
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: 2019-04-24T09:11:12Z
+      lastUpdateTime: 2019-04-24T09:11:12Z
+      message: Deployment config has minimum availability.
+      status: "True"
+      type: Available
+    - lastTransitionTime: 2019-04-24T09:12:02Z
+      lastUpdateTime: 2019-04-24T09:12:04Z
+      message: replication controller "auditquery-2" successfully rolled out
+      reason: NewReplicationControllerAvailable
+      status: "True"
+      type: Progressing
+    details:
+      causes:
+      - type: ConfigChange
+      message: config change
+    latestVersion: 2
+    observedGeneration: 3
+    readyReplicas: 1
+    replicas: 1
+    unavailableReplicas: 0
+    updatedReplicas: 1
+- apiVersion: apps.openshift.io/v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: 2019-04-24T08:43:09Z
+    generation: 4
+    labels:
+      app: indy
+    name: indy
+    namespace: nos-local
+    resourceVersion: "3974575811"
+    selfLink: /apis/apps.openshift.io/v1/namespaces/nos-local/deploymentconfigs/indy
+    uid: fcc29809-666c-11e9-95b5-1250f17a13c8
+  spec:
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      app: indy
+      deploymentconfig: indy
+    strategy:
+      activeDeadlineSeconds: 21600
+      resources: {}
+      rollingParams:
+        intervalSeconds: 1
+        maxSurge: 25%
+        maxUnavailable: 25%
+        timeoutSeconds: 600
+        updatePeriodSeconds: 1
+      type: Rolling
+    template:
+      metadata:
+        annotations:
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          app: indy
+          deploymentconfig: indy
+      spec:
+        containers:
+        - image: jind0001/indy@sha256:2d06fc14677aee8eea761fbfa971df9d4003b4ba2b92b75fba0bd0532a881f9a
+          imagePullPolicy: IfNotPresent
+          name: indy
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+    test: false
+    triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - indy
+        from:
+          kind: ImageStreamTag
+          name: indy:1.5
+          namespace: nos-local
+        lastTriggeredImage: jind0001/indy@sha256:2d06fc14677aee8eea761fbfa971df9d4003b4ba2b92b75fba0bd0532a881f9a
+      type: ImageChange
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: 2019-04-24T08:43:14Z
+      lastUpdateTime: 2019-04-24T08:43:29Z
+      message: replication controller "indy-1" successfully rolled out
+      reason: NewReplicationControllerAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: 2019-04-24T08:47:45Z
+      lastUpdateTime: 2019-04-24T08:47:45Z
+      message: Deployment config has minimum availability.
+      status: "True"
+      type: Available
+    details:
+      causes:
+      - type: ConfigChange
+      message: config change
+    latestVersion: 1
+    observedGeneration: 4
+    readyReplicas: 1
+    replicas: 1
+    unavailableReplicas: 0
+    updatedReplicas: 1
+- apiVersion: apps.openshift.io/v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: 2019-04-22T08:50:59Z
+    generation: 8
+    labels:
+      app: jgroups-gossip
+    name: jgroups-gossip
+    namespace: nos-local
+    resourceVersion: "3974574899"
+    selfLink: /apis/apps.openshift.io/v1/namespaces/nos-local/deploymentconfigs/jgroups-gossip
+    uid: bff731fc-64db-11e9-b371-12d641ec7610
+  spec:
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      app: jgroups-gossip
+      deploymentconfig: jgroups-gossip
+    strategy:
+      activeDeadlineSeconds: 21600
+      resources: {}
+      rollingParams:
+        intervalSeconds: 1
+        maxSurge: 25%
+        maxUnavailable: 25%
+        timeoutSeconds: 600
+        updatePeriodSeconds: 1
+      type: Rolling
+    template:
+      metadata:
+        annotations:
+          openshift.io/generated-by: OpenShiftNewApp
+        creationTimestamp: null
+        labels:
+          app: jgroups-gossip
+          deploymentconfig: jgroups-gossip
+      spec:
+        containers:
+        - env:
+          - name: LogLevel
+            value: trace
+          image: jboss/jgroups-gossip@sha256:6f51b5261f65e39c555dc8ac4b08aaade7421ff7db330e83f2e24385ff571d22
+          imagePullPolicy: Always
+          name: jgroups-gossip
+          ports:
+          - containerPort: 12001
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+    test: false
+    triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - jgroups-gossip
+        from:
+          kind: ImageStreamTag
+          name: jgroups-gossip:latest
+          namespace: nos-local
+        lastTriggeredImage: jboss/jgroups-gossip@sha256:6f51b5261f65e39c555dc8ac4b08aaade7421ff7db330e83f2e24385ff571d22
+      type: ImageChange
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: 2019-04-22T08:51:09Z
+      lastUpdateTime: 2019-04-22T08:51:09Z
+      message: replication controller "jgroups-gossip-1" successfully rolled out
+      reason: NewReplicationControllerAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: 2019-04-24T08:47:06Z
+      lastUpdateTime: 2019-04-24T08:47:06Z
+      message: Deployment config has minimum availability.
+      status: "True"
+      type: Available
+    details:
+      causes:
+      - type: ConfigChange
+      message: config change
+    latestVersion: 1
+    observedGeneration: 8
+    readyReplicas: 1
+    replicas: 1
+    unavailableReplicas: 0
+    updatedReplicas: 1
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/image.dockerRepositoryCheck: 2019-04-24T09:10:53Z
+    creationTimestamp: 2019-04-22T05:10:26Z
+    generation: 6
+    labels:
+      app: auditquery
+    name: auditquery
+    namespace: nos-local
+    resourceVersion: "3974606803"
+    selfLink: /apis/image.openshift.io/v1/namespaces/nos-local/imagestreams/auditquery
+    uid: f092c311-64bc-11e9-b371-12d641ec7610
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/imported-from: jind0001/auditquery:1.0
+      from:
+        kind: DockerImage
+        name: jind0001/auditquery:1.0
+      generation: 2
+      importPolicy: {}
+      name: "1.0"
+      referencePolicy:
+        type: Source
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: jind0001/auditquery:1.5
+      generation: 4
+      importPolicy: {}
+      name: "1.5"
+      referencePolicy:
+        type: Source
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: jind0001/auditquery:1.6
+      generation: 6
+      importPolicy: {}
+      name: "1.6"
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: docker-registry.default.svc:5000/nos-local/auditquery
+    tags:
+    - items:
+      - created: 2019-04-22T05:10:26Z
+        dockerImageReference: jind0001/auditquery@sha256:34cbec977cf1519965c554626344b3007e4e73500ab0da6788ce858d7b6456e4
+        generation: 2
+        image: sha256:34cbec977cf1519965c554626344b3007e4e73500ab0da6788ce858d7b6456e4
+      tag: "1.0"
+    - items:
+      - created: 2019-04-24T08:11:09Z
+        dockerImageReference: jind0001/auditquery@sha256:f21135b43db330c6ad0c2d9c451f0229456ac12463426d410e1b5f598f93af91
+        generation: 4
+        image: sha256:f21135b43db330c6ad0c2d9c451f0229456ac12463426d410e1b5f598f93af91
+      tag: "1.5"
+    - items:
+      - created: 2019-04-24T09:10:53Z
+        dockerImageReference: jind0001/auditquery@sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4
+        generation: 6
+        image: sha256:7e732fdf5d24681eb02552ae80e8bd0c96eb10e1a82acedca8586631234b33a4
+      tag: "1.6"
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/image.dockerRepositoryCheck: 2019-04-22T02:27:25Z
+    creationTimestamp: 2019-04-22T02:27:25Z
+    generation: 2
+    labels:
+      app: openshift-play
+    name: base-jdk
+    namespace: nos-local
+    resourceVersion: "3970173335"
+    selfLink: /apis/image.openshift.io/v1/namespaces/nos-local/imagestreams/base-jdk
+    uid: 2a7e262e-64a6-11e9-95b5-1250f17a13c8
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/imported-from: jboss/base-jdk:8
+      from:
+        kind: DockerImage
+        name: jboss/base-jdk:8
+      generation: 2
+      importPolicy: {}
+      name: "8"
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: docker-registry.default.svc:5000/nos-local/base-jdk
+    tags:
+    - items:
+      - created: 2019-04-22T02:27:25Z
+        dockerImageReference: jboss/base-jdk@sha256:b4663ebf8026a204a6994ce7034b8c1580e73b3f11409605c6a0ad422578bad7
+        generation: 2
+        image: sha256:b4663ebf8026a204a6994ce7034b8c1580e73b3f11409605c6a0ad422578bad7
+      tag: "8"
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/image.dockerRepositoryCheck: 2019-04-24T08:43:09Z
+    creationTimestamp: 2019-04-23T06:46:00Z
+    generation: 10
+    labels:
+      app: indy
+    name: indy
+    namespace: nos-local
+    resourceVersion: "3974569716"
+    selfLink: /apis/image.openshift.io/v1/namespaces/nos-local/imagestreams/indy
+    uid: 74a622a7-6593-11e9-95b5-1250f17a13c8
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/imported-from: jind0001/indy:1.1
+      from:
+        kind: DockerImage
+        name: jind0001/indy:1.1
+      generation: 2
+      importPolicy: {}
+      name: "1.1"
+      referencePolicy:
+        type: Source
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: jind0001/indy:1.2
+      generation: 4
+      importPolicy: {}
+      name: "1.2"
+      referencePolicy:
+        type: Source
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: jind0001/indy:1.3
+      generation: 6
+      importPolicy: {}
+      name: "1.3"
+      referencePolicy:
+        type: Source
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: jind0001/indy:1.4
+      generation: 8
+      importPolicy: {}
+      name: "1.4"
+      referencePolicy:
+        type: Source
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: jind0001/indy:1.5
+      generation: 10
+      importPolicy: {}
+      name: "1.5"
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: docker-registry.default.svc:5000/nos-local/indy
+    tags:
+    - items:
+      - created: 2019-04-23T06:46:00Z
+        dockerImageReference: jind0001/indy@sha256:6499bc248b6a18db2182aa02e852b5b3e9b86c5f291042f07df1267f7e190779
+        generation: 2
+        image: sha256:6499bc248b6a18db2182aa02e852b5b3e9b86c5f291042f07df1267f7e190779
+      tag: "1.1"
+    - items:
+      - created: 2019-04-24T02:13:46Z
+        dockerImageReference: jind0001/indy@sha256:e618d149ab2864edef53d9b8826bfb4423a4c345a2f46504c1666d37e2c781b2
+        generation: 4
+        image: sha256:e618d149ab2864edef53d9b8826bfb4423a4c345a2f46504c1666d37e2c781b2
+      tag: "1.2"
+    - items:
+      - created: 2019-04-24T02:45:40Z
+        dockerImageReference: jind0001/indy@sha256:6c31d05ad549fc0170f820bb80bca0a807b50c4c380d8fbe7f62e400146c16d8
+        generation: 6
+        image: sha256:6c31d05ad549fc0170f820bb80bca0a807b50c4c380d8fbe7f62e400146c16d8
+      tag: "1.3"
+    - items:
+      - created: 2019-04-24T03:27:28Z
+        dockerImageReference: jind0001/indy@sha256:8de48584d33c615edff7d348f3f2871079e783df535d571ee465df296bb4222f
+        generation: 8
+        image: sha256:8de48584d33c615edff7d348f3f2871079e783df535d571ee465df296bb4222f
+      tag: "1.4"
+    - items:
+      - created: 2019-04-24T08:43:09Z
+        dockerImageReference: jind0001/indy@sha256:2d06fc14677aee8eea761fbfa971df9d4003b4ba2b92b75fba0bd0532a881f9a
+        generation: 10
+        image: sha256:2d06fc14677aee8eea761fbfa971df9d4003b4ba2b92b75fba0bd0532a881f9a
+      tag: "1.5"
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/image.dockerRepositoryCheck: 2019-04-22T08:50:59Z
+    creationTimestamp: 2019-04-22T08:50:58Z
+    generation: 2
+    labels:
+      app: jgroups-gossip
+    name: jgroups-gossip
+    namespace: nos-local
+    resourceVersion: "3970690052"
+    selfLink: /apis/image.openshift.io/v1/namespaces/nos-local/imagestreams/jgroups-gossip
+    uid: bfba0419-64db-11e9-b371-12d641ec7610
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/imported-from: jboss/jgroups-gossip
+      from:
+        kind: DockerImage
+        name: jboss/jgroups-gossip
+      generation: 2
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: docker-registry.default.svc:5000/nos-local/jgroups-gossip
+    tags:
+    - items:
+      - created: 2019-04-22T08:50:59Z
+        dockerImageReference: jboss/jgroups-gossip@sha256:6f51b5261f65e39c555dc8ac4b08aaade7421ff7db330e83f2e24385ff571d22
+        generation: 2
+        image: sha256:6f51b5261f65e39c555dc8ac4b08aaade7421ff7db330e83f2e24385ff571d22
+      tag: latest
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    annotations:
+      openshift.io/host.generated: "true"
+    creationTimestamp: 2019-04-19T09:27:43Z
+    labels:
+      app: auditquery
+    name: auditquery
+    namespace: nos-local
+    resourceVersion: "3965054311"
+    selfLink: /apis/route.openshift.io/v1/namespaces/nos-local/routes/auditquery
+    uid: 62d521a4-6285-11e9-95b5-1250f17a13c8
+  spec:
+    host: auditquery-nos-local.1d35.starter-us-east-1.openshiftapps.com
+    port:
+      targetPort: 8082-tcp
+    to:
+      kind: Service
+      name: auditquery
+      weight: 100
+    wildcardPolicy: None
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: 2019-04-19T09:27:44Z
+        status: "True"
+        type: Admitted
+      host: auditquery-nos-local.1d35.starter-us-east-1.openshiftapps.com
+      routerCanonicalHostname: elb.1d35.starter-us-east-1.openshiftapps.com
+      routerName: router
+      wildcardPolicy: None
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    annotations:
+      openshift.io/host.generated: "true"
+    creationTimestamp: 2019-04-23T06:46:10Z
+    labels:
+      app: indy
+    name: indy
+    namespace: nos-local
+    resourceVersion: "3972444541"
+    selfLink: /apis/route.openshift.io/v1/namespaces/nos-local/routes/indy
+    uid: 7ab60c16-6593-11e9-b371-12d641ec7610
+  spec:
+    host: indy-nos-local.1d35.starter-us-east-1.openshiftapps.com
+    port:
+      targetPort: 8080-tcp
+    to:
+      kind: Service
+      name: indy
+      weight: 100
+    wildcardPolicy: None
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: 2019-04-23T06:46:10Z
+        status: "True"
+        type: Admitted
+      host: indy-nos-local.1d35.starter-us-east-1.openshiftapps.com
+      routerCanonicalHostname: elb.1d35.starter-us-east-1.openshiftapps.com
+      routerName: router
+      wildcardPolicy: None
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    annotations:
+      openshift.io/host.generated: "true"
+    creationTimestamp: 2019-04-22T08:51:14Z
+    labels:
+      app: jgroups-gossip
+    name: jgroups-gossip
+    namespace: nos-local
+    resourceVersion: "3970690466"
+    selfLink: /apis/route.openshift.io/v1/namespaces/nos-local/routes/jgroups-gossip
+    uid: c92fd929-64db-11e9-95b5-1250f17a13c8
+  spec:
+    host: jgroups-gossip-nos-local.1d35.starter-us-east-1.openshiftapps.com
+    port:
+      targetPort: 12001-tcp
+    to:
+      kind: Service
+      name: jgroups-gossip
+      weight: 100
+    wildcardPolicy: None
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: 2019-04-22T08:51:14Z
+        status: "True"
+        type: Admitted
+      host: jgroups-gossip-nos-local.1d35.starter-us-east-1.openshiftapps.com
+      routerCanonicalHostname: elb.1d35.starter-us-east-1.openshiftapps.com
+      routerName: router
+      wildcardPolicy: None
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
