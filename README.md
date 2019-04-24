@@ -58,7 +58,7 @@ $> oc new-app jind0001/auditquery:1.0
 
 #### Create ConfigMaps from the existing config files
 ````
-oc create configmap auditquery-config --from-file auditquery/docker/conf/
+oc create configmap auditquery-config --from-file app/auditquery/docker/conf/
 
 ````
 
@@ -95,8 +95,14 @@ oc new-app jind0001/indy:1.4
 
 #### JGroups tcp config
 ````
+<config xmlns="urn:org:jgroups"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:org:jgroups http://www.jgroups.org/schema/jgroups-4.0.xsd">
+
 ....
 <TCPGOSSIP initial_hosts="${jgroups.gossip_router_hosts:HostA[12001]}" />
 ....
+
+</config>
 ````
 [jgroups gossip config](https://access.redhat.com/solutions/57974)
