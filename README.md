@@ -60,6 +60,8 @@ $> oc new-app jind0001/auditquery:1.0
 ````
 oc create configmap auditquery-config --from-file app/auditquery/docker/conf/
 
+oc create configmap auditquery-logging-config --from-file app/auditquery/docker/conf/logging/
+
 ````
 
 #### Add ConfigMap for auditquery
