@@ -108,3 +108,8 @@ oc new-app jind0001/indy:1.4
 </config>
 ````
 [jgroups gossip config](https://access.redhat.com/solutions/57974)
+
+#### Issues:
+
+##### 1: IPv6
+Use of IPv6. JGroups does work with IPv6, but some JDK implementations still have issues with it, so you can turn IPv6 off by passing the "-Djava.net.preferIPv4Stack=true" system property to the JVM. You can force use of IPv6 addresses by using setting system property -Djava.net.preferIPv6Addresses=true. If you use IPv6 addresses, you should also define IPv6 addresses in your configuration; e.g. if you set bind_addr="192.168.1.5" in UDP, JGroups will try to pick IPv4 addresses if an IPv4 stack is available, or you're running a dual stack. 
