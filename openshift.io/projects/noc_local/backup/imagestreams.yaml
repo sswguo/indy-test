@@ -1,0 +1,173 @@
+apiVersion: v1
+items:
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/image.dockerRepositoryCheck: 2019-04-26T03:27:24Z
+    creationTimestamp: 2019-04-26T03:27:24Z
+    generation: 2
+    labels:
+      app: auditquery
+    name: auditquery
+    namespace: nos-local
+    resourceVersion: "3977997948"
+    selfLink: /apis/image.openshift.io/v1/namespaces/nos-local/imagestreams/auditquery
+    uid: 353ec4bd-67d3-11e9-8d50-12d641ec7610
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/imported-from: jind0001/auditquery:1.8
+      from:
+        kind: DockerImage
+        name: jind0001/auditquery:1.8
+      generation: 2
+      importPolicy: {}
+      name: "1.8"
+      referencePolicy:
+        type: Source
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: jind0001/auditquery:1.9
+      generation: 2
+      importPolicy: {}
+      name: "1.9"
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: docker-registry.default.svc:5000/nos-local/auditquery
+    tags:
+    - items:
+      - created: 2019-04-26T03:27:24Z
+        dockerImageReference: jind0001/auditquery@sha256:c776fd5ab0821c6771adbd85943229350b3a3b51e25b61186e0d574251fa78a7
+        generation: 2
+        image: sha256:c776fd5ab0821c6771adbd85943229350b3a3b51e25b61186e0d574251fa78a7
+      tag: "1.8"
+    - items:
+      - created: 2019-04-26T03:27:24Z
+        dockerImageReference: jind0001/auditquery@sha256:7897013f375910335993aa9e73c28db6040c9dc4b668fc738cb7d8035223c7e1
+        generation: 2
+        image: sha256:7897013f375910335993aa9e73c28db6040c9dc4b668fc738cb7d8035223c7e1
+      tag: "1.9"
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/image.dockerRepositoryCheck: 2019-04-26T03:27:24Z
+    creationTimestamp: 2019-04-26T03:27:24Z
+    generation: 2
+    labels:
+      app: openshift-play
+    name: base-jdk
+    namespace: nos-local
+    resourceVersion: "3977997954"
+    selfLink: /apis/image.openshift.io/v1/namespaces/nos-local/imagestreams/base-jdk
+    uid: 356c5999-67d3-11e9-8d50-12d641ec7610
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/imported-from: jboss/base-jdk:8
+      from:
+        kind: DockerImage
+        name: jboss/base-jdk:8
+      generation: 2
+      importPolicy: {}
+      name: "8"
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: docker-registry.default.svc:5000/nos-local/base-jdk
+    tags:
+    - items:
+      - created: 2019-04-26T03:27:24Z
+        dockerImageReference: jboss/base-jdk@sha256:b4663ebf8026a204a6994ce7034b8c1580e73b3f11409605c6a0ad422578bad7
+        generation: 2
+        image: sha256:b4663ebf8026a204a6994ce7034b8c1580e73b3f11409605c6a0ad422578bad7
+      tag: "8"
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/image.dockerRepositoryCheck: 2019-04-26T03:27:24Z
+    creationTimestamp: 2019-04-26T03:27:24Z
+    generation: 2
+    labels:
+      app: indy
+    name: indy
+    namespace: nos-local
+    resourceVersion: "3977997963"
+    selfLink: /apis/image.openshift.io/v1/namespaces/nos-local/imagestreams/indy
+    uid: 359b3b1c-67d3-11e9-8d50-12d641ec7610
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/imported-from: jind0001/indy:1.6
+      from:
+        kind: DockerImage
+        name: jind0001/indy:1.6
+      generation: 2
+      importPolicy: {}
+      name: "1.6"
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: docker-registry.default.svc:5000/nos-local/indy
+    tags:
+    - items:
+      - created: 2019-04-26T03:27:24Z
+        dockerImageReference: jind0001/indy@sha256:7aba9eba6353c2fe36b228ddb130f39a610c52eaa9d22e5cea09acfc65327a24
+        generation: 2
+        image: sha256:7aba9eba6353c2fe36b228ddb130f39a610c52eaa9d22e5cea09acfc65327a24
+      tag: "1.6"
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+      openshift.io/image.dockerRepositoryCheck: 2019-04-26T03:27:25Z
+    creationTimestamp: 2019-04-26T03:27:24Z
+    generation: 2
+    labels:
+      app: jgroups-gossip
+    name: jgroups-gossip
+    namespace: nos-local
+    resourceVersion: "3977997971"
+    selfLink: /apis/image.openshift.io/v1/namespaces/nos-local/imagestreams/jgroups-gossip
+    uid: 35c2841f-67d3-11e9-8d50-12d641ec7610
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations:
+        openshift.io/imported-from: jboss/jgroups-gossip
+      from:
+        kind: DockerImage
+        name: jboss/jgroups-gossip
+      generation: 2
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: docker-registry.default.svc:5000/nos-local/jgroups-gossip
+    tags:
+    - items:
+      - created: 2019-04-26T03:27:25Z
+        dockerImageReference: jboss/jgroups-gossip@sha256:6f51b5261f65e39c555dc8ac4b08aaade7421ff7db330e83f2e24385ff571d22
+        generation: 2
+        image: sha256:6f51b5261f65e39c555dc8ac4b08aaade7421ff7db330e83f2e24385ff571d22
+      tag: latest
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
