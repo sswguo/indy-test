@@ -8,7 +8,7 @@ COPY auditquery-standalone-rest-0.13.0-SNAPSHOT.tar.gz /tmp/auditquery.tar.gz
 
 RUN tar -xvf /tmp/auditquery.tar.gz -C /opt && rm /tmp/auditquery.tar.gz
 
-COPY conf/*.xml auditquery/etc/auditquery/
+COPY conf/*.xml auditquery/conf/
 
 EXPOSE 8082
 
