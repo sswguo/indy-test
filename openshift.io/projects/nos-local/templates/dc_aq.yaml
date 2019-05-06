@@ -1,0 +1,40 @@
+kind: "DeploymentConfig"
+apiVersion: "v1"
+metadata:
+  name: "auditquery"
+spec:
+  template: 
+    metadata:
+      labels:
+        name: "auditquery"
+    spec:
+      containers:
+        - name: "auditquery"
+          image: "jind0001/auditquery:1.10"
+          ports:
+            - containerPort: 8082
+              protocol: "TCP"
+      dnsPolicy: ClusterFirst
+      volumeMounts:
+      - name: aq-config-volume
+        mountPath: /opt/auditquery/conf
+      volumes:
+      - name: aq-config-volume
+        configMap:
+          name: auditquery-config
+  replicas: 1
+  triggers:
+    - type: "ConfigChange" 
+    - type: "ImageChange" 
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - "auditquery"
+        from:
+          kind: "ImageStreamTag"
+          name: "auditquery:1.10"
+  strategy: 
+    type: "Rolling"
+  paused: false 
+  revisionHistoryLimit: 2 
+  minReadySeconds: 0

@@ -5,15 +5,15 @@ items:
   metadata:
     annotations:
       openshift.io/generated-by: OpenShiftNewApp
-    creationTimestamp: 2019-04-26T03:27:26Z
-    generation: 2
+    creationTimestamp: 2019-05-06T07:07:06Z
+    generation: 5
     labels:
       app: auditquery
     name: auditquery
     namespace: nos-local
-    resourceVersion: "3977998391"
+    resourceVersion: "3995360641"
     selfLink: /apis/apps.openshift.io/v1/namespaces/nos-local/deploymentconfigs/auditquery
-    uid: 36954a85-67d3-11e9-8eba-1250f17a13c8
+    uid: 8ece69b2-6fcd-11e9-b06d-12d641ec7610
   spec:
     replicas: 1
     revisionHistoryLimit: 10
@@ -40,7 +40,7 @@ items:
           deploymentconfig: auditquery
       spec:
         containers:
-        - image: jind0001/auditquery@sha256:7897013f375910335993aa9e73c28db6040c9dc4b668fc738cb7d8035223c7e1
+        - image: jind0001/auditquery@sha256:ee8c3fd3f99f95e098d43e43258fc9264cf513904a89087b87339d4d6a3ec6f1
           imagePullPolicy: IfNotPresent
           name: auditquery
           ports:
@@ -50,10 +50,8 @@ items:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
-          - mountPath: /opt/auditquery/etc/auditquery
-            name: volume-6dxcy
-          - mountPath: /opt/auditquery/etc/auditquery/logging
-            name: volume-kzbmp
+          - mountPath: /opt/auditquery/conf
+            name: volume-21k3c
         dnsPolicy: ClusterFirst
         restartPolicy: Always
         schedulerName: default-scheduler
@@ -63,11 +61,7 @@ items:
         - configMap:
             defaultMode: 420
             name: auditquery-config
-          name: volume-6dxcy
-        - configMap:
-            defaultMode: 420
-            name: auditquery-logging-config
-          name: volume-kzbmp
+          name: volume-21k3c
     test: false
     triggers:
     - type: ConfigChange
@@ -77,30 +71,30 @@ items:
         - auditquery
         from:
           kind: ImageStreamTag
-          name: auditquery:1.9
+          name: auditquery:1.10
           namespace: nos-local
-        lastTriggeredImage: jind0001/auditquery@sha256:7897013f375910335993aa9e73c28db6040c9dc4b668fc738cb7d8035223c7e1
+        lastTriggeredImage: jind0001/auditquery@sha256:ee8c3fd3f99f95e098d43e43258fc9264cf513904a89087b87339d4d6a3ec6f1
       type: ImageChange
   status:
     availableReplicas: 1
     conditions:
-    - lastTransitionTime: 2019-04-26T03:27:36Z
-      lastUpdateTime: 2019-04-26T03:27:36Z
-      message: Deployment config has minimum availability.
-      status: "True"
-      type: Available
-    - lastTransitionTime: 2019-04-26T03:27:32Z
-      lastUpdateTime: 2019-04-26T03:27:37Z
-      message: replication controller "auditquery-1" successfully rolled out
+    - lastTransitionTime: 2019-05-06T07:08:38Z
+      lastUpdateTime: 2019-05-06T07:08:38Z
+      message: replication controller "auditquery-2" successfully rolled out
       reason: NewReplicationControllerAvailable
       status: "True"
       type: Progressing
+    - lastTransitionTime: 2019-05-06T07:08:59Z
+      lastUpdateTime: 2019-05-06T07:08:59Z
+      message: Deployment config has minimum availability.
+      status: "True"
+      type: Available
     details:
       causes:
       - type: ConfigChange
       message: config change
-    latestVersion: 1
-    observedGeneration: 2
+    latestVersion: 2
+    observedGeneration: 5
     readyReplicas: 1
     replicas: 1
     unavailableReplicas: 0
@@ -110,15 +104,15 @@ items:
   metadata:
     annotations:
       openshift.io/generated-by: OpenShiftNewApp
-    creationTimestamp: 2019-04-26T03:27:26Z
+    creationTimestamp: 2019-04-28T05:17:26Z
     generation: 2
     labels:
       app: indy
     name: indy
     namespace: nos-local
-    resourceVersion: "3977998303"
+    resourceVersion: "3994272185"
     selfLink: /apis/apps.openshift.io/v1/namespaces/nos-local/deploymentconfigs/indy
-    uid: 36bab3e3-67d3-11e9-8eba-1250f17a13c8
+    uid: e9252f4f-6974-11e9-8d50-12d641ec7610
   spec:
     replicas: 1
     revisionHistoryLimit: 10
@@ -175,17 +169,17 @@ items:
   status:
     availableReplicas: 1
     conditions:
-    - lastTransitionTime: 2019-04-26T03:27:35Z
-      lastUpdateTime: 2019-04-26T03:27:35Z
-      message: Deployment config has minimum availability.
-      status: "True"
-      type: Available
-    - lastTransitionTime: 2019-04-26T03:27:32Z
-      lastUpdateTime: 2019-04-26T03:27:35Z
+    - lastTransitionTime: 2019-04-28T05:18:11Z
+      lastUpdateTime: 2019-04-28T05:18:11Z
       message: replication controller "indy-1" successfully rolled out
       reason: NewReplicationControllerAvailable
       status: "True"
       type: Progressing
+    - lastTransitionTime: 2019-05-05T16:45:33Z
+      lastUpdateTime: 2019-05-05T16:45:33Z
+      message: Deployment config has minimum availability.
+      status: "True"
+      type: Available
     details:
       causes:
       - type: ConfigChange
@@ -201,15 +195,15 @@ items:
   metadata:
     annotations:
       openshift.io/generated-by: OpenShiftNewApp
-    creationTimestamp: 2019-04-26T03:27:26Z
+    creationTimestamp: 2019-04-28T05:17:26Z
     generation: 2
     labels:
       app: jgroups-gossip
     name: jgroups-gossip
     namespace: nos-local
-    resourceVersion: "3977998444"
+    resourceVersion: "3993225040"
     selfLink: /apis/apps.openshift.io/v1/namespaces/nos-local/deploymentconfigs/jgroups-gossip
-    uid: 36e0011d-67d3-11e9-8eba-1250f17a13c8
+    uid: e95adde2-6974-11e9-8d50-12d641ec7610
   spec:
     replicas: 1
     revisionHistoryLimit: 10
@@ -269,17 +263,17 @@ items:
   status:
     availableReplicas: 1
     conditions:
-    - lastTransitionTime: 2019-04-26T03:27:38Z
-      lastUpdateTime: 2019-04-26T03:27:38Z
-      message: Deployment config has minimum availability.
-      status: "True"
-      type: Available
-    - lastTransitionTime: 2019-04-26T03:27:40Z
-      lastUpdateTime: 2019-04-26T03:27:40Z
+    - lastTransitionTime: 2019-04-28T05:17:31Z
+      lastUpdateTime: 2019-04-28T05:17:43Z
       message: replication controller "jgroups-gossip-1" successfully rolled out
       reason: NewReplicationControllerAvailable
       status: "True"
       type: Progressing
+    - lastTransitionTime: 2019-05-05T03:52:08Z
+      lastUpdateTime: 2019-05-05T03:52:08Z
+      message: Deployment config has minimum availability.
+      status: "True"
+      type: Available
     details:
       causes:
       - type: ConfigChange
