@@ -5,7 +5,7 @@
         xmlns="urn:infinispan:config:9.4">
 
     <jgroups>
-        <stack-file name="external-file" path="/opt/auditquery/etc/auditquery/jgroups-tcp.xml" />
+        <stack-file name="external-file" path="/opt/auditquery/conf/jgroups-tcp.xml" />
     </jgroups>
 
     <cache-container default-cache="event-audit" name="auditQueryClusterCacheManager">

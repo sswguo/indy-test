@@ -16,7 +16,6 @@ Restore the project:
 - Init the configMaps
 ```
 oc create configmap auditquery-config --from-file configmap/
-oc create configmap auditquery-logging-config --from-file configmap/logging/
 ```
 
 - Restore the other resources

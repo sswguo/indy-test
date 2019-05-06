@@ -15,21 +15,11 @@
             thread_pool.keep_alive_time="60000"
     />
     <TCPGOSSIP initial_hosts="jgroups-gossip.nos-local.svc.cluster.local[12001]"/>
-    <!-- <TCPGOSSIP initial_hosts="10.130.16.253[12001]"/> -->
 
 <!--
     <TUNNEL gossip_router_hosts="10.128.18.192[12001]:HostA[12001],HostB[12001]" />
     <PING />
     -->
-    <!--
-    <TCP
-     bind_addr="loopback,match-interface:eth0"
-     bind_port="7800"
-  />
-  <org.jgroups.protocols.kubernetes.KUBE_PING
-     port_range="1"
-  />
--->
     <MERGE3 min_interval="10000"
             max_interval="30000"
     />
