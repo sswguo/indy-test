@@ -15,6 +15,7 @@ Restore the project:
 
 - Init the configMaps
 ```
+oc delete configmap auditquery-config
 oc create configmap auditquery-config --from-file configmap/
 ```
 
