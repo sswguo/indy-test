@@ -5,7 +5,7 @@
         xmlns="urn:infinispan:config:9.4">
 
     <jgroups>
-        <stack-file name="external-file" path="jgroups-tcp.xml" />
+        <stack-file name="external-file" path="/opt/auditquery/conf/jgroups-tcp.xml" />
     </jgroups>
 
     <cache-container default-cache="event-audit" name="auditQueryClusterCacheManager">
@@ -14,9 +14,11 @@
         <replicated-cache name="event-audit">
             <indexing index="LOCAL">
                 <property name="default.directory_provider">local-heap</property>
+                <property name="hibernate.search.lucene_version">LUCENE_CURRENT</property>
             </indexing>
         </replicated-cache>
 
     </cache-container>
 
 </infinispan>
+
