@@ -2,6 +2,8 @@ kind: "DeploymentConfig"
 apiVersion: "v1"
 metadata:
   name: "auditquery"
+  labels:
+    app: "auditquery" 
 spec:
   template: 
     metadata:
@@ -11,6 +13,7 @@ spec:
       containers:
         - name: "auditquery"
           image: "jind0001/auditquery:1.10"
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8082
               protocol: "TCP"
