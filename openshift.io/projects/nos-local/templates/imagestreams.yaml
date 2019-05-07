@@ -10,11 +10,11 @@ items:
     lookupPolicy:
       local: false
     tags:
-    - annotations:
-        openshift.io/imported-from: jind0001/auditquery:1.11
+    - annotations: null
       from:
         kind: DockerImage
         name: jind0001/auditquery:1.11
+      generation: 4
       importPolicy: {}
       name: "1.11"
       referencePolicy:
@@ -34,6 +34,7 @@ items:
       from:
         kind: DockerImage
         name: jboss/base-jdk:8
+      generation: 2
       importPolicy: {}
       name: "8"
       referencePolicy:
@@ -44,7 +45,6 @@ items:
     labels:
       app: indy
     name: indy
-    namespace: nos-local
   spec:
     lookupPolicy:
       local: false
@@ -54,6 +54,7 @@ items:
       from:
         kind: DockerImage
         name: jind0001/indy:1.6
+      generation: 2
       importPolicy: {}
       name: "1.6"
       referencePolicy:
@@ -73,6 +74,7 @@ items:
       from:
         kind: DockerImage
         name: jboss/jgroups-gossip
+      generation: 2
       importPolicy: {}
       name: latest
       referencePolicy:

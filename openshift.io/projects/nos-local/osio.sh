@@ -1,16 +1,23 @@
 #!/bin/bash
 
-while getopts 'cbrd:' c
+while getopts 'cbrnd:' c
 do
   case $c in
     c) ACTION=CLEAR  ;;
     b) ACTION=BACKUP ;;
     r) ACTION=RESTORE ;;
+    n) ACTION=NEW ;;
     d) TEMPLATES_DIR=$OPTARG ;;
   esac
 done
 
 echo "ACTION: $ACTION"
+
+init()
+{
+  echo "oc create -f templates/$1.yaml"
+  oc create -f templates/$1.yaml
+}
 
 exposeSvc()
 {
@@ -44,6 +51,13 @@ restore()
 }
 
 case $ACTION in
+  NEW)
+    for object in imagestreams dc_auditquery svc_auditquery dc_jgroups svc_jgroups dc_indy svc_indy
+    do
+      init $object
+    done
+    exposeSvc
+  ;;
   BACKUP) 
     for object in imagestreams dc svc
     do

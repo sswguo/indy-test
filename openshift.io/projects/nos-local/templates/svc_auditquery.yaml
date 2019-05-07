@@ -1,0 +1,29 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: auditquery
+    name: auditquery
+    #namespace: nos-local
+    #resourceVersion: "3996981966"
+    #selfLink: /api/v1/namespaces/nos-local/services/auditquery
+    #uid: 8d237676-7086-11e9-b419-122631632f42
+  spec:
+    ports:
+    - name: 8082-tcp
+      port: 8082
+      protocol: TCP
+      targetPort: 8082
+    selector:
+      app: auditquery
+      deploymentconfig: auditquery
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
