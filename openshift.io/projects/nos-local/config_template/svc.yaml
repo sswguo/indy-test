@@ -1,0 +1,64 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: auditquery
+    name: auditquery
+  spec:
+    clusterIP: 172.30.14.117
+    ports:
+    - name: 8082-tcp
+      port: 8082
+      protocol: TCP
+      targetPort: 8082
+    selector:
+      app: auditquery
+      deploymentconfig: auditquery
+    sessionAffinity: None
+    type: ClusterIP
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: indy
+    name: indy
+  spec:
+    clusterIP: 172.30.68.250
+    ports:
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: indy
+      deploymentconfig: indy
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: jgroups-gossip
+    name: jgroups-gossip
+  spec:
+    clusterIP: 172.30.140.116
+    ports:
+    - name: 12001-tcp
+      port: 12001
+      protocol: TCP
+      targetPort: 12001
+    selector:
+      app: jgroups-gossip
+      deploymentconfig: jgroups-gossip
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
