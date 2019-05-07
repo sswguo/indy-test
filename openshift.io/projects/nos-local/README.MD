@@ -24,7 +24,7 @@ oc create configmap auditquery-config --from-file configmap/
 ./osio.sh -r -d backup
 ```
 
-- Init the apps  
+Init the apps from beginning 
 
 _(init the apps based on the templates in dir templates/)_
 
