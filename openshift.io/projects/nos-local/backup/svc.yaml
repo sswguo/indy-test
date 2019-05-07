@@ -5,14 +5,14 @@ items:
   metadata:
     annotations:
       openshift.io/generated-by: OpenShiftNewApp
-    creationTimestamp: 2019-05-06T06:46:13Z
+    creationTimestamp: 2019-05-07T05:11:20Z
     labels:
       app: auditquery
     name: auditquery
     namespace: nos-local
-    resourceVersion: "3995331874"
+    resourceVersion: "3996981966"
     selfLink: /api/v1/namespaces/nos-local/services/auditquery
-    uid: a3f1d440-6fca-11e9-b419-122631632f42
+    uid: 8d237676-7086-11e9-b419-122631632f42
   spec:
     clusterIP: 172.30.14.117
     ports:
@@ -32,14 +32,14 @@ items:
   metadata:
     annotations:
       openshift.io/generated-by: OpenShiftNewApp
-    creationTimestamp: 2019-04-28T05:17:28Z
+    creationTimestamp: 2019-05-07T05:11:21Z
     labels:
       app: indy
     name: indy
     namespace: nos-local
-    resourceVersion: "3981797164"
+    resourceVersion: "3996981974"
     selfLink: /api/v1/namespaces/nos-local/services/indy
-    uid: ea715c3f-6974-11e9-8eba-1250f17a13c8
+    uid: 8d55fd2e-7086-11e9-b419-122631632f42
   spec:
     clusterIP: 172.30.68.250
     ports:
@@ -59,14 +59,14 @@ items:
   metadata:
     annotations:
       openshift.io/generated-by: OpenShiftNewApp
-    creationTimestamp: 2019-04-28T05:17:28Z
+    creationTimestamp: 2019-05-07T05:11:21Z
     labels:
       app: jgroups-gossip
     name: jgroups-gossip
     namespace: nos-local
-    resourceVersion: "3981797177"
+    resourceVersion: "3996981982"
     selfLink: /api/v1/namespaces/nos-local/services/jgroups-gossip
-    uid: eaa41d77-6974-11e9-8eba-1250f17a13c8
+    uid: 8d851fca-7086-11e9-b419-122631632f42
   spec:
     clusterIP: 172.30.140.116
     ports:
